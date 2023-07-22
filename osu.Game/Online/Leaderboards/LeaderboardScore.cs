@@ -414,6 +414,17 @@ namespace osu.Game.Online.Leaderboards
             }
         }
 
+        protected override bool OnClick(ClickEvent e)
+        {
+            if (e.ShiftPressed)
+            {
+                songSelect.Mods.Value = Score.Mods;
+                return false;
+            }
+
+            return base.OnClick(e);
+        }
+
         public MenuItem[] ContextMenuItems
         {
             get
